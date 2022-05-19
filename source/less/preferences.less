@@ -16,10 +16,28 @@
 
 .preferences__title {
   .abs(block, 0, initial, initial, 0);
+  width: 100%;
   padding: 12px 0;
   .font(16px, 700, 18px);
   color: @basic-blue-light;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+.preferences__title-link {
+  .resetLink();
+  display: block;
+  width: 100%;
+
+  &::after {
+    content: "";
+    .abs(block, calc(50% - 5px), 0, initial, initial);
+    .bg(center, auto);
+    border-bottom: 6px solid @midnight-blue;
+    border-left: 6px solid transparent;
+    transform: rotate(225deg);
+    transition: @transitionTransform;
+  }
 }
 
 .preferences__list {
@@ -34,4 +52,39 @@
   color: @basic-blue;
   text-transform: uppercase;
   border-radius: 25px;
+}
+
+.preferences__wrapper-inputs {
+  position: relative;
+  display: flex;
+
+  &::after {
+    content: "";
+    .abs(block, 50%, initial, initial, calc(50% - 8px));
+    .size(16px, 1px);
+    background-color: @skyline;
+    z-index: 1;
+  }
+}
+
+.preferences__range-label {
+  flex-grow: 1;
+}
+
+.preferences__range-input {
+  .base();
+  display: inline-block;
+  .size(100%, 35px);
+  padding-top: 3px;
+  text-align: center;
+  .font(14px, 500, 13px);
+  background-color: @white;
+  color: @basic-blue-light;
+  border: 1px solid @skyline;
+  outline: 0;
+  appearance: textfield;
+
+  &--min {
+    border-radius: 4px 0 0 4px;
+  }
 }
